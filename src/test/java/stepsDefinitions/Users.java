@@ -42,10 +42,7 @@ public class Users {
   public void validateDate() {
     body = response.getBody();
 
-    body.asString();
-
     JsonPath jsonPath = response.jsonPath();
-
     String firstName = jsonPath.getJsonObject("data[0].first_name").toString();
 
     Assertions.assertEquals("George", firstName);
@@ -65,7 +62,6 @@ public class Users {
 
     response = httpRequest.post("api/login");
     body = response.getBody();
-    body.asString();
     JsonPath jsonPath = response.jsonPath();
     token = jsonPath.getJsonObject("token").toString();
 
